@@ -10,10 +10,20 @@
 # describe the starting room
 # sample list of commands for the player to type (north, east, south, west, look)
 
-action = ''
-common_actions = 'north, south, east, west, look, pickup, quit'
-local_actions = 'no-op'
-matt_r1 = """
+# action = ''
+# common_actions = 'north, south, east, west, look, pickup, quit'
+# local_actions = 'no-op'
+
+class MyClass:
+    """A simple example class"""
+    i = 12345
+
+    def f(self):
+        return 'hello world'
+
+matt_r1_map = {'south': 'r2', 'east': 'r3', 'west': 'r4'}
+matt_r2_map = {'north': 'r1', 'east': 'r5', 'west': 'r6'}
+matt_r1_description = """
 
 Welcome to Matt's area. Be prepared for anything, you never know what is around the next corner or the next room.
 
@@ -31,7 +41,12 @@ def help() :
 def look_around(room):
     print room
 
-def go_home():
+def move(direction, location):
+    # m = location + '_map'
+    print [direction]
+
+
+def leave_game():
     print('Good Bye!')
     exit(0)
 
@@ -44,8 +59,8 @@ if new_game == "yes":
     exit(1)
 else:
   print('Lets start a new game then\n')
-  loc = 'r1'
-  print matt_r1 # print the intro to your area
+  loc = 'matt_r1'
+  print matt_r1_description # print the intro to your area
 
 ## -- Play the game -- ##
 
@@ -55,18 +70,18 @@ while action != 'quit':
 
     if action == 'help':
         help()
-    elif action == 'north':
+    elif action == 'move north':
         move('north')
-    elif action == 'south':
-        move('south')
-    elif action == 'east':
+    elif action == 'move south':
+        move('south', loc)
+    elif action == 'move east':
         move('east')
-    elif action == 'west':
+    elif action == 'move west':
         move('west')
-    elif action == 'look':
+    elif action == 'look around':
         look_around(matt_r1)
     elif action == 'quit':
-        go_home()
+        leave_game()
     else:
       print(' Please enter a valid command\n')
       help()    
