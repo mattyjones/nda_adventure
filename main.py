@@ -24,6 +24,31 @@ class Room:
     def print_print(self):
         print self.map
 
+# -- Create rooms for the first floor
+room_count = 9
+
+for n in room_count:
+    'r' + n = Room()
+
+
+# r1 = Room()
+# r2 = Room()
+# r3 = Room()
+# r4 = Room()
+# r5 = Room()
+# r6 = Room()
+# r7 = Room()
+# r8 = Room()
+# r9 = Room()
+
+r1.description = """
+
+    Welcome to Matt's area. Be prepared for anything, you never know what is around the next corner or the next room.
+
+    You are in a wide empty room with doors to the south, east, and west.
+    There is a chair in the middle of the room and an empty table.
+    """
+r1.map = {'south': 'r2', 'east': 'r3', 'west': 'r4'}
 
 # matt_r1_map = {'south': 'r2', 'east': 'r3', 'west': 'r4'}
 # matt_r2_map = {'north': 'r1', 'east': 'r5', 'west': 'r6'}
@@ -57,15 +82,7 @@ if new_game == "yes":
     exit(1)
 else:
     print('Lets start a new game then\n')
-    r1 = Room()
-    r1.description = """
 
-Welcome to Matt's area. Be prepared for anything, you never know what is around the next corner or the next room.
-
-You are in a wide empty room with doors to the south, east, and west.
-There is a chair in the middle of the room and an empty table.
-"""
-    r1.map = {'south': 'r2', 'east': 'r3', 'west': 'r4'}
 
   # loc = 'matt_r1'
   print r1.description
